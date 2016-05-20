@@ -7,7 +7,7 @@ from setuptools import setup, Extension
 
 impl = Extension(
 	'osxtrash.impl',
-	sources = ['src/objc/trash.m'],
+	sources=['src/objc/trash.m'],
 	extra_compile_args=['-mmacosx-version-min=10.5'],
 	extra_link_args=[
 		'-framework', 'AppKit',
