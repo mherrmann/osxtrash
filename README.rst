@@ -12,11 +12,11 @@ Usage
 
 Passing multiple files at once has the advantage that Finder may only prompt the user once for all files (instead of once per file). When an error occurs deleting any of the files, an ``OSError`` is raised. Its ``errno`` attribute can be used to distinguish between the following cases:
 
-- `1`: Invalid path.
-- `2`: Path does not exist.
-- `3`: Could not get file privileges.
-- `4`: Could not move to trash.
-- `5`: Some files were not moved to trash.
+- ``1``: Invalid path.
+- ``2``: Path does not exist.
+- ``3``: Could not get file privileges.
+- ``4``: Could not move to trash.
+- ``5``: Some files were not moved to trash.
 
 Installation
 ============
