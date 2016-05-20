@@ -1,7 +1,7 @@
 """Send files to the Trash on OS X (incl. "Put Back" support).
 
 See:
-https://github.com/mherrmann/osxtrash-py"""
+https://github.com/mherrmann/osxtrash"""
 
 from setuptools import setup, Extension
 
@@ -21,7 +21,7 @@ setup(
 	description='Send files to the Trash on OS X (incl. "Put Back" support).',
 	long_description=
 		'Send files to the Trash on OS X (incl. "Put Back" support).' + 
-		'\n\nHome page: https://github.com/mherrmann/osxtrash-py',
+		'\n\nHome page: https://github.com/mherrmann/osxtrash',
 	url='https://github.com/mherrmann/osxtrash',
 
 	author='Michael Herrmann',
