@@ -26,6 +26,6 @@ Installation
 
 Implementation
 ==============
-The implementation is based on a trimmed down version of `Ali Rantakari's ``trash`` script`_. The present library doesn't do much more than providing a nice Python API to it.
+The implementation is based on a trimmed down version of `Ali Rantakari's trash script`_. The present library doesn't do much more than providing a nice Python API to it.
 
-.. _`Ali Rantakari's ``trash`` script`: https://github.com/ali-rantakari/trash
+.. _`Ali Rantakari's trash script`: https://github.com/ali-rantakari/trash
