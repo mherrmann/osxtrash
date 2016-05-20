@@ -1,1 +1,1 @@
-graft src/objc/
+recursive-include src/objc *.h
