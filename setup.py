@@ -22,7 +22,7 @@ setup(
 	long_description=
 		'Send files to the Trash on OS X (incl. "Put Back" support).' + 
 		'\n\nHome page: https://github.com/mherrmann/osxtrash-py',
-	url='https://github.com/mherrmann/osxtrash-py',
+	url='https://github.com/mherrmann/osxtrash',
 
 	author='Michael Herrmann',
 	author_email='[my first name]@[my last name].io',
