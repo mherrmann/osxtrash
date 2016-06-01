@@ -1,7 +1,7 @@
 osxtrash
 ========
 
-A Python library for moving files to the trash on OS X, including support for OS X's "Put Back" functionality for restoring files.
+A Python library for moving files to the trash on OS X, including support for OS X's "Put Back" functionality for restoring files. Currently, only Python 3 is supported (I'd be happy to accept a Pull Request adding Python 2 support!).
 
 Usage
 =====
@@ -23,18 +23,6 @@ Installation
 .. code:: bash
 
     pip install osxtrash
-
-Deployment
-==========
-If you want to ship this library alongside your own product, you need to ensure that you also ship the file ``impl.so`` which lies in the ``osxtrash/`` directory in your ``site-packages/`` folder. If you are unable to place the file at this location, for instance when deployng a frozen desktop application, then you can call ``osxtrash.initialize(path_to_impl_so)``. For example:
-
-.. code:: python
-
-    import osxtrash
-    import sys
-    from os.path import join, dirname
-    osxtrash.initialize(join(dirname(sys.executable), 'impl.so'))
-    osxtrash.move_to_trash(...)
 
 Implementation
 ==============

@@ -29,7 +29,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-
+#include <Python.h>
 #include <AppKit/AppKit.h>
 #include <ScriptingBridge/ScriptingBridge.h>
 #import <libgen.h>
@@ -178,8 +178,7 @@ static FSRef getFSRef(NSString *filePath)
     return fsRef;
 }
 
-int moveFilesToTrash(int argc, char *files[])
-{
+static int moveFilesToTrash(int argc, char *files[]) {
     NSAutoreleasePool *autoReleasePool = [[NSAutoreleasePool alloc] init];
 
     int exitValue = 0;
@@ -249,4 +248,42 @@ int moveFilesToTrash(int argc, char *files[])
 
     [autoReleasePool release];
     return exitValue;
+}
+
+static PyObject *
+osxtrash_move_to_trash(PyObject *self, PyObject *args)
+{
+    Py_ssize_t argc = PyTuple_Size(args);
+    if (!argc && PyErr_Occurred())
+        return NULL;
+    const char *files[argc];
+    for (Py_ssize_t i = 0; i < argc; i++) {
+        PyObject *arg_p = PyTuple_GetItem(args, i);
+        if (arg_p == NULL) {return NULL;}
+        char* file = PyUnicode_AsUTF8(arg_p);
+        if (file == NULL) {return NULL;}
+        files[i] = file;
+    }
+    return PyLong_FromLong(moveFilesToTrash(argc, files));
+}
+
+static PyMethodDef OSXTrashMethods[] = {
+    {"move_to_trash",  osxtrash_move_to_trash, METH_VARARGS,
+     "Move files to the Trash."},
+    {NULL, NULL, 0, NULL}        /* Sentinel */
+};
+
+static struct PyModuleDef osxtrashmodule = {
+   PyModuleDef_HEAD_INIT,
+   "osxtrash",
+   NULL,       /* module documentation, may be NULL */
+   -1,         /* size of per-interpreter state of the module,
+                  or -1 if the module keeps state in global variables. */
+   OSXTrashMethods
+};
+
+PyMODINIT_FUNC
+PyInit_osxtrash(void)
+{
+    return PyModule_Create(&osxtrashmodule);
 }

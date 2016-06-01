@@ -6,8 +6,8 @@ https://github.com/mherrmann/osxtrash"""
 from setuptools import setup, Extension
 
 impl = Extension(
-	'osxtrash.impl',
-	sources=['src/objc/trash.m'],
+	'osxtrash',
+	sources=['src/trash.m'],
 	extra_compile_args=['-mmacosx-version-min=10.5'],
 	extra_link_args=[
 		'-framework', 'AppKit',
@@ -17,7 +17,7 @@ impl = Extension(
 
 setup(
 	name='osxtrash',
-	version='1.3',
+	version='1.4',
 	description='Send files to the Trash on OS X (incl. "Put Back" support).',
 	long_description=
 		'Send files to the Trash on OS X (incl. "Put Back" support).' + 
@@ -34,8 +34,6 @@ setup(
 		'License :: OSI Approved :: MIT License',
 		'Operating System :: MacOS :: MacOS X',
 		'Programming Language :: Python',
-		'Programming Language :: Python :: 2',
-		'Programming Language :: Python :: 2.7',
 		'Programming Language :: Python :: 3',
 		'Programming Language :: Python :: 3.2',
 		'Programming Language :: Python :: 3.3',
@@ -44,7 +42,5 @@ setup(
 		'Topic :: Software Development :: Libraries'
 	],
 	keywords='osx os x trash move recycle put back',
-	package_dir={'': 'src/python'},
-	packages=['osxtrash'],
 	ext_modules = [impl]
 )
