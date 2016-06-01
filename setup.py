@@ -17,7 +17,7 @@ impl = Extension(
 
 setup(
 	name='osxtrash',
-	version='1.4',
+	version='1.5',
 	description='Send files to the Trash on OS X (incl. "Put Back" support).',
 	long_description=
 		'Send files to the Trash on OS X (incl. "Put Back" support).' + 
